@@ -6,6 +6,7 @@ CSV Parsing
 **로컬에 CSV 파일을 보관하는 프로젝트의 경우 처리 **
 
 **[기존]**
+
 CSVManager의 Inspector에 추가되는 csv 파일들을 각각 변수로 추가 및 파싱하는 함수를 구현해야했다. 
 * 문제점
   1) csv 파일의 수가 증가할때마다 CSVManager의 Inspector가 너무 길어짐.
@@ -13,6 +14,7 @@ CSVManager의 Inspector에 추가되는 csv 파일들을 각각 변수로 추가
  
 
 **[구현]**
+
 1) CSVParserBase 라는 추상 클래스를 상속받아 각 csv 데이터에 맞는 파싱 클래스를 구현한다.
 2) CSVManager에서 InitializeParsers() 에서 CSVParserBase를 상속받은 모든 파서 클래스를 찾아서 자동으로 초기화한다. [리플렉션 활용]
    ㄴ 각 파서 클래스에 적용된 TableTypeAttribute를 활용해서 TABLE_TYPE과 매핑한다.
